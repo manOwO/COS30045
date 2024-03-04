@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="description"	content="Data Visualisation Exercise 1"/>
+	<meta name="keywords"		  content="HTML, CSS"/>
+	<meta name="author"			  content="Mai An Nguyen"/>
+
+	<title>Task 1.1 HTML and CSS Demo Page</title>
+	<!--Insert description of exercise 
+		Excercise lab 1.1 HTML and CSS review
+		Aim: Demonstrate a knowledge of basic web programming concepts (e.g., HTML and CSS).
+	-->
+
+	<style>
+		* {
+			font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+			font-size: 20px;
+			width: 100%;
+		}
+
+		h1 {
+			font-size: 150%; 	
+		}
+
+		h2 {
+			font-size: 120%;
+		}
+
+		figure {
+			width: 80%;
+		}
+
+		figcaption {
+			font-style: italic;
+		}
+
+		button {
+			width: 100px;
+			background-color: rgb(44, 44, 182);
+			color: white;
+			position: relative;
+		}
+
+		button:hover {
+			background-color: darkgoldenrod;
+		}
+
+	</style>
+
+</head>
+
+<body>
+
+	<h1>Pets and the Pandemic</h1>
+	<h2>Mai An Nguyen</h2>
+
+	<p>
+		A report from Animal Medicines Australia (AMA) has found that many Australians took the opportunity to introduce a pet into their household during the pandemic. Their survey indicated that there was a <b>significant increase</b> in the percent of households taking in a new dog, fish or bird. Their research also indicated that pets had a number of positive influences on their lives such as:
+	</p>
+	
+	<ul>
+		<li>
+			companionship
+		</li>
+		<li>
+			better mental health
+		</li>
+		<li>
+			joy and happiness.
+		</li>
+	</ul>
+
+	<figure>
+		<img src="pet_ownership_in_australia_table.png">
+		<figcaption>Fig 1. Comparison of Pet Ownership in 2019 and 2021. Data Source: <a href="https://animalmedicinesaustralia.org.au/wp-content/uploads/2021/08/AMAU005-PATP-Report21_v1.41_WEB.pdf">Animal Medicines Australia Report</a></a></figcaption>
+	</figure>
+
+	<button onclick="pets2019()">2019</button>
+	<button onclick="pets2021()">2021</button>
+	<button onclick="petsboth()">Both</button>
+	
+	<figure id="pets2019" style="display: block;">
+		<img src="pets 2019.png" alt="Household Penetration of Pets Ownership in Australia, 2019 (%)">
+		<figcaption>Fig 2. Percent of most popular pets owned by Australians in 2019.</figcaption>
+	</figure>
+
+	<figure id="pets2021" style="display: none;">
+		<img src="pets 2021.png" alt="Penetration of Pets Ownership in Australia, 2021 (%)">
+		<figcaption>Fig 3. Percent of most popular pets owned by Australians in 2021.</figcaption>
+	</figure>
+
+	<figure id="petsboth" style="display: none;">
+		<img src="pets both.png" alt="Penetration of Pets Ownership in Australia, 2019 vs 2021 (%)">
+		<figcaption>Fig 4. Percent of most popular pets owned by Australians in 2019 and 2021.</figcaption>
+	</figure>
+
+
+	<p>
+		With the increase in pet ownership the AMA are encouraging policy makers to consider the needs of companion animals and their owners when considering rental, strata and body corporate regulations are well as accepting animals in public places and transport.
+	</p>
+
+	<figure>
+		<img src="cat.jpg">
+		<img src="dog.png">
+		<img src="fish.jpg">
+	</figure>
+
+	<footer>COS30045 Data Visualisation</footer>
+
+</body>
+<script>
+	function pets2019() {
+		if (document.getElementById("pets2019").style.display === 'none') {
+			document.getElementById("pets2019").style.display = 'block';
+			document.getElementById("pets2021").style.display = 'none';
+			document.getElementById("petsboth").style.display = 'none';
+		} 
+	}
+
+	function pets2021() {
+		if (document.getElementById("pets2021").style.display === 'none') {
+			document.getElementById("pets2019").style.display = 'none';
+			document.getElementById("pets2021").style.display = 'block';
+			document.getElementById("petsboth").style.display = 'none';
+		} 
+	}
+
+	function petsboth() {
+		if (document.getElementById("petsboth").style.display === 'none') {
+			document.getElementById("pets2019").style.display = 'none';
+			document.getElementById("pets2021").style.display = 'none';
+			document.getElementById("petsboth").style.display = 'block';
+		} 
+	}
+</script>
+</html>
