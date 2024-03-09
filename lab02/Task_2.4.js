@@ -15,9 +15,6 @@ function barChart() {
         .data(wombatSightings)
         .enter()
         .append("rect")
-        .attr("fill", function(d){
-            return "hsl(240, 100%, " + (lightness - d) +  "% )";
-        })
         .attr("x", function (d, i){
                     return i * (w / wombatSightings.length);
                 })
@@ -27,6 +24,13 @@ function barChart() {
         .attr("width", w / wombatSightings.length - padding)
         .attr("height", function(d) {
             return d.wombats * 2;
+        })
+        .attr("fill", function(d){
+            if (d.wombats > 15) {
+                return "blue";
+            } else {
+                return "#0000b3";
+            }
         });
 }
 function init() {
