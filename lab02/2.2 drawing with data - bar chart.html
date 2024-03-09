@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Data Visualisation">
+    <meta name="keywords" content="HTML, CSS, D3">
+    <meta name="author" content="Mai An Nguyen">
+    
+    <title>Task 2.1 D3 Data Binding</title>
+    
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <h1>The D3 Journey starts here...</h1>
+
+    <script>
+        var w = 500;
+        var h = 100;
+
+        var dataset = [14, 5, 26, 23, 9, 6, 17];
+
+        var padding = 1;
+        
+        var lightness = 70;
+
+        var svg = d3.select("body")
+                    .append("svg")
+                    .attr("width", w)
+                    .attr("height", h);
+
+        svg.selectAll("rect")
+            .data(dataset)
+            .enter()
+            .append("rect")
+            .attr("fill", function(d){
+                return "hsl(40, 100%, " + (lightness - d) +  "% )";
+            })
+            .attr("x", function (d, i){
+                        return i * (w / dataset.length);
+                    })
+            .attr("y", function(d){
+                return h - d * 2;
+            })
+            .attr("width", w / dataset.length - padding)
+            .attr("height", function(d) {
+                return d * 2;
+            });
+
+        svg.selectAll("text")
+            .data(dataset)
+            .enter()
+            .append("text")
+            .text(function (d){
+                return d;
+            })
+            .attr("x", function(d, i){
+                return i * (w / dataset.length) + (w / dataset.length - padding)/2 - 3;
+            })
+            .attr("y", function(d){
+                return h - d * 2 - padding;
+            });
+
+    </script>
+
+    <footer style="color: grey;">COS30045 Data Visualisation<br>Mai An Nguyen</footer>
+</body>
+</html>
