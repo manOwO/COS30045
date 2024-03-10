@@ -8,28 +8,30 @@
     
     <title>Task 2.1 D3 Data Binding</title>
     
+    <!-- source the D3 library -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
     <h1>The D3 Journey starts here...</h1>
 
+    <!-- D3 code -->
     <script>
-        var dataset = [14, 5, 26, 23, 9];
+        var dataset = [14, 5, 26, 23, 9]; // example from Murray
 
         d3.select("body").selectAll("p")
             .data(dataset)
             .enter()
             .append("p")
-            .style("color", function(d) {
+            .style("color", function(d) { //anonymous function: for each d > 10, the color of the text line would be red
                 if (d > 10) {
-                    return "#ff0000";
+                    return "#ff0000"; //hex value of color red
                 }
-            })
+            }) 
             .text(function(d) {
                 if (d > 10) {
-                    return "Warning: Joe watched " + d + " cat videos today";
+                    return "Warning: Joe watched " + d + " cat videos today"; //if value greater than 10, a warning would be printed
                 } else {
-                    return "Joe watched " + d + " cat videos today";
+                    return "Joe watched " + d + " cat videos today"; // if value not greater than 10, none warning would be printed
                 }
             });
     </script>

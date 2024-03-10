@@ -14,28 +14,36 @@
 	-->
 
 	<style>
+		/* Lab 1.1: adding css*/
+		
+		/* style for the whole html */
 		* {
 			font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 			font-size: 20px;
 			width: 100%;
 		}
 
+		/* style for heading 1 */
 		h1 {
 			font-size: 150%; 	
 		}
 
+		/* style for heading 2 */
 		h2 {
 			font-size: 120%;
 		}
 
+		/* style for figures */
 		figure {
 			width: 80%;
 		}
 
+		/* style for figcaptions */
 		figcaption {
 			font-style: italic;
 		}
 
+		/* style for buttons */
 		button {
 			width: 100px;
 			background-color: rgb(44, 44, 182);
@@ -43,6 +51,7 @@
 			position: relative;
 		}
 
+		/* style for hovered buttons */
 		button:hover {
 			background-color: darkgoldenrod;
 		}
@@ -52,7 +61,7 @@
 </head>
 
 <body>
-
+	<!-- content of pet ownership during the COVID Pandemic - pets and the pandemic. txt -->
 	<h1>Pets and the Pandemic</h1>
 	<h2>Mai An Nguyen</h2>
 
@@ -72,25 +81,30 @@
 		</li>
 	</ul>
 
+	<!-- Pet Ownership in Australia data base - pet_ownership_in_australia_table.png -->
 	<figure>
 		<img src="pet_ownership_in_australia_table.png">
 		<figcaption>Fig 1. Comparison of Pet Ownership in 2019 and 2021. Data Source: <a href="https://animalmedicinesaustralia.org.au/wp-content/uploads/2021/08/AMAU005-PATP-Report21_v1.41_WEB.pdf">Animal Medicines Australia Report</a></a></figcaption>
 	</figure>
 
+	<!-- Buttons to switch between images of 3 visualisations (2019, 2021, and both) -->
 	<button onclick="pets2019()">2019</button>
 	<button onclick="pets2021()">2021</button>
 	<button onclick="petsboth()">Both</button>
 	
+	<!-- Visualisation and caption of Pets Ownership in Australia, 2019 -->
 	<figure id="pets2019" style="display: block;">
 		<img src="pets 2019.png" alt="Household Penetration of Pets Ownership in Australia, 2019 (%)">
 		<figcaption>Fig 2. Percent of most popular pets owned by Australians in 2019.</figcaption>
 	</figure>
 
+	<!-- Visualisation and caption of Pets Ownership in Australia, 2021 -->
 	<figure id="pets2021" style="display: none;">
 		<img src="pets 2021.png" alt="Penetration of Pets Ownership in Australia, 2021 (%)">
 		<figcaption>Fig 3. Percent of most popular pets owned by Australians in 2021.</figcaption>
 	</figure>
 
+	<!-- Visualisation and caption of Pets Ownership in Australia, 2019 and 2021 -->
 	<figure id="petsboth" style="display: none;">
 		<img src="pets both.png" alt="Penetration of Pets Ownership in Australia, 2019 vs 2021 (%)">
 		<figcaption>Fig 4. Percent of most popular pets owned by Australians in 2019 and 2021.</figcaption>
@@ -101,6 +115,7 @@
 		With the increase in pet ownership the AMA are encouraging policy makers to consider the needs of companion animals and their owners when considering rental, strata and body corporate regulations are well as accepting animals in public places and transport.
 	</p>
 
+	<!-- Some images of Australia's favorite pets - dog.jpeg, cat.jpeg, fish.jpeg -->
 	<figure>
 		<img src="cat.jpg">
 		<img src="dog.png">
@@ -111,6 +126,7 @@
 
 </body>
 <script>
+	// Function displaying Visualisation and caption of Pets Ownership in Australia, 2019 and hiding other visualisations
 	function pets2019() {
 		if (document.getElementById("pets2019").style.display === 'none') {
 			document.getElementById("pets2019").style.display = 'block';
@@ -119,6 +135,7 @@
 		} 
 	}
 
+	// Function displaying Visualisation and caption of Pets Ownership in Australia, 2021 and hiding other visualisations
 	function pets2021() {
 		if (document.getElementById("pets2021").style.display === 'none') {
 			document.getElementById("pets2019").style.display = 'none';
@@ -127,6 +144,7 @@
 		} 
 	}
 
+	// Function displaying Visualisation and caption of Pets Ownership in Australia, 2019 and 2021 and hiding other visualisations
 	function petsboth() {
 		if (document.getElementById("petsboth").style.display === 'none') {
 			document.getElementById("pets2019").style.display = 'none';

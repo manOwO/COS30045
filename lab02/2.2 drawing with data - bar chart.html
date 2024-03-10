@@ -8,56 +8,61 @@
     
     <title>Task 2.1 D3 Data Binding</title>
     
+    <!-- D3 library v7 -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
     <h1>The D3 Journey starts here...</h1>
 
     <script>
+        //width and height of svg
         var w = 500;
-        var h = 100;
+        var h = 150;
 
-        var dataset = [14, 5, 26, 23, 9, 6, 17];
+        var dataset = [14, 5, 26, 23, 9, 6, 17]; //a variable that hold the dataset with around 5 values under 30
 
         var padding = 1;
         
-        var lightness = 70;
+        var lightness = 70; //the default lightness of the color of the rectangular bars
 
+        //add a new variable svg to create an svg screen with a width and a height
         var svg = d3.select("body")
                     .append("svg")
                     .attr("width", w)
                     .attr("height", h);
 
+        //graph rectangular bars
         svg.selectAll("rect")
-            .data(dataset)
+            .data(dataset) //for each value in the dataset 
             .enter()
             .append("rect")
             .attr("fill", function(d){
-                return "hsl(40, 100%, " + (lightness - d) +  "% )";
+                return "hsl(40, 100%, " + (lightness - d) +  "% )"; //color customisation: the orange's lightness is depended on the value in the dataset: the larger the value, the less light the orange
             })
             .attr("x", function (d, i){
-                        return i * (w / dataset.length);
+                        return i * (w / dataset.length); //x position of each bars = index of value * width of each bar including padding for spacing out bars
                     })
             .attr("y", function(d){
-                return h - d * 2;
+                return h - d * 4; //y position of the bar = height of the svg - height of the bar
             })
-            .attr("width", w / dataset.length - padding)
+            .attr("width", w / dataset.length - padding) //width of the svg/length of dataset (to divide equally the width of each bars) - padding for spaing out the bars
             .attr("height", function(d) {
-                return d * 2;
+                return d * 4; //multiple height by 4
             });
 
+        //labeling customisation
         svg.selectAll("text")
-            .data(dataset)
+            .data(dataset) //for each value in the dataset
             .enter()
             .append("text")
             .text(function (d){
-                return d;
+                return d; //print the value in the dataset that each bar demonstrate
             })
             .attr("x", function(d, i){
-                return i * (w / dataset.length) + (w / dataset.length - padding)/2 - 3;
+                return i * (w / dataset.length) + (w / dataset.length - padding)/2 - 3; //position of the bar + half of the bar's width - 3 to make the labels at the horizontal center of the bar
             })
             .attr("y", function(d){
-                return h - d * 2 - padding;
+                return h - d * 4 - padding; //higher than the y position of the bar a padding
             });
 
     </script>
