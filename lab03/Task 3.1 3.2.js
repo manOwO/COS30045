@@ -17,7 +17,7 @@ function init() {
         [475, 44],
         [25, 67],
         [85, 21],
-        [220, 88],
+        [220, 88]
     ];
 
     //Worked example from Murray
