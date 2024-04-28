@@ -4,7 +4,7 @@ var h = 300;
 
 //choosing the projection used for this graph
 var projection = d3.geoMercator()
-                //scale the map global to only Victoria
+                //scale the map from global to only Victoria
                 .center([145, -36.5])
                 .translate([w/2, h/2])
                 .scale(2450);

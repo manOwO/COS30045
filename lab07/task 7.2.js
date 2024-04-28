@@ -48,5 +48,5 @@ arcs.append("text")
         return d.value;
     }) //return arc's data value
     .attr("transform", function(d) {
-        return "translate(" + arc.centroid(d) + ")"; //positioned the text labels of each arc to the respective segments
+        return "translate(" + arc.centroid(d) + ")"; //positioned the text labels of each arc to the respective segments at the middle of each segment
     });

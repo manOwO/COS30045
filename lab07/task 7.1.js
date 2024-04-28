@@ -32,7 +32,7 @@ function lineChart() {
         .ticks(5)
         .scale(yScale);
 
-    //set up the line (not used)
+    //set up the line 
     line = d3.line()
             .x(function(d) {return xScale(d.date);})
             .y(function(d) {return yScale(d.number);})
@@ -66,6 +66,8 @@ function lineChart() {
         //the line
     svg.append("line")
         .attr("class", "line halfMilMark")
+        .style("stroke", "red")
+        .style("stroke-width", 1)
         //start of line
         .attr("x1", padding)
         .attr("y1", yScale(500000))
